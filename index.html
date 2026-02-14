@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pumula High School - Isizwe Sakhiwa Ngemfundo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Brown and Gold Color Theme */
+        :root {
+            --brown-dark: #5D3A1A;
+            --brown: #8B5A2B;
+            --brown-light: #B8860B;
+            --gold: #FFD700;
+            --gold-light: #F4C430;
+            --cream: #FAF0E6;
+            --white: #FFFFFF;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown) 100%);
+            color: var(--gold);
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--gold);
+            color: var(--brown-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(93, 58, 26, 0.8), rgba(139, 90, 43, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%238B5A2B"/><text x="50" y="65" font-size="60" text-anchor="middle" fill="%23FFD700" font-family="Arial">📚</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--gold);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--gold-light);
+        }
+
+        .motto {
+            font-size: 2rem;
+            font-weight: bold;
+            border: 3px solid var(--gold);
+            padding: 1rem 2rem;
+            display: inline-block;
+            border-radius: 50px;
+            background: rgba(93, 58, 26, 0.6);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--brown-dark);
+            border-bottom: 4px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Subjects Grid */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .subject-category {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(139, 90, 43, 0.2);
+            border-top: 5px solid var(--gold);
+        }
+
+        .subject-category h3 {
+            color: var(--brown-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .subject-category ul {
+            list-style: none;
+        }
+
+        .subject-category li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            border-bottom: 1px dashed var(--brown-light);
+            color: var(--brown-dark);
+        }
+
+        .subject-category li:before {
+            content: "📘 ";
+            color: var(--gold);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Clubs Section */
+        .clubs-section {
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown) 100%);
+            padding: 4rem 0;
+            margin: 3rem 0;
+        }
+
+        .clubs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .clubs-title {
+            text-align: center;
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .club-card {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .club-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .club-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .club-card h4 {
+            color: var(--brown-dark);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .club-card p {
+            color: var(--brown);
+        }
+
+        /* Other Subjects Section */
+        .other-subjects {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .other-subjects h3 {
+            color: var(--brown-dark);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .subject-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .subject-tag {
+            background: var(--brown);
+            color: var(--gold);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brown-dark);
+            color: var(--gold);
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--gold-light);
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .developed-by {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.4rem;
+            }
+
+            .motto {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Pumula High School</h1>
+                <p>Excellence in Education</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#clubs">Clubs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Welcome to Pumula High School</h2>
+            <p>Shaping Future Leaders</p>
+            <div class="motto">"isizwe sakhiwa ngemfundo"</div>
+        </div>
+    </section>
+
+    <main>
+        <div class="container" id="academics">
+            <div class="section-title">
+                <h2>Our Academic Programs</h2>
+            </div>
+
+            <div class="subjects-grid">
+                <!-- Sciences -->
+                <div class="subject-category">
+                    <h3>🔬 Sciences</h3>
+                    <ul>
+                        <li>Mathematics</li>
+                        <li>Biology</li>
+                        <li>Physics</li>
+                        <li>Chemistry</li>
+                        <li>Computer Science</li>
+                    </ul>
+                </div>
+
+                <!-- Commercials -->
+                <div class="subject-category">
+                    <h3>📊 Commercials</h3>
+                    <ul>
+                        <li>Accounts</li>
+                        <li>Commerce</li>
+                        <li>Economics</li>
+                    </ul>
+                </div>
+
+                <!-- Arts -->
+                <div class="subject-category">
+                    <h3>🎨 Arts</h3>
+                    <ul>
+                        <li>Literature in Ndebele</li>
+                        <li>Literature in English</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Other Subjects -->
+            <div class="other-subjects">
+                <h3>Additional Subjects</h3>
+                <div class="subject-tags">
+                    <span class="subject-tag">Business Studies</span>
+                    <span class="subject-tag">TGD</span>
+                    <span class="subject-tag">Building Technology</span>
+                    <span class="subject-tag">Design and Technology</span>
+                    <span class="subject-tag">History</span>
+                    <span class="subject-tag">Geography</span>
+                    <span class="subject-tag">Agricultural Science</span>
+                    <span class="subject-tag">Religious Studies</span>
+                </div>
+                <p style="margin-top: 1.5rem; color: var(--brown-dark); font-style: italic;">And many more subjects to choose from!</p>
+            </div>
+        </div>
+
+        <!-- Clubs Section -->
+        <section class="clubs-section" id="clubs">
+            <div class="clubs-container">
+                <h2 class="clubs-title">🌟 Clubs & Extracurricular Activities</h2>
+                
+                <div class="clubs-grid">
+                    <div class="club-card">
+                        <div class="club-icon">💻</div>
+                        <h4>Coding Club</h4>
+                        <p>Learn programming and app development</p>
+                    </div>
+
+                    <div class="club-card">
+                        <div class="club-icon">🤖</div>
+                        <h4>Robotics Club</h4>
+                        <p>Build and program robots</p>
+                    </div>
+
+                    <div class="club-card">
+                        <div class="club-icon">🏥</div>
+                        <h4>First Aid Club</h4>
+                        <p>Learn life-saving skills</p>
+                    </div>
+
+                    <div class="club-card">
+                        <div class="club-icon">⚜️</div>
+                        <h4>Scouts</h4>
+                        <p>Adventure, leadership, community service</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <div style="background: var(--gold); color: var(--brown-dark); padding: 1rem; border-radius: 10px; display: inline-block; font-weight: bold;">
+                        More clubs available: Debate, Sports, Drama, Music, Chess, Environment Club
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <div class="container" id="contact">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                <div>
+                    <h3 style="color: var(--brown-dark); margin-bottom: 1rem;">📍 Visit Us</h3>
+                    <p style="margin-bottom: 0.5rem;">Pumula High School</p>
+                    <p style="margin-bottom: 0.5rem;">Pumula Township</p>
+                    <p style="margin-bottom: 0.5rem;">Bulawayo, Zimbabwe</p>
+                </div>
+
+                <div>
+                    <h3 style="color: var(--brown-dark); margin-bottom: 1rem;">📞 Get in Touch</h3>
+                    <p style="margin-bottom: 0.5rem;">Phone: +263 123 456 789</p>
+                    <p style="margin-bottom: 0.5rem;">Email: info@pumulahigh.edu.zw</p>
+                    <p style="margin-bottom: 0.5rem;">Office Hours: Mon-Fri, 8am - 4pm</p>
+                </div>
+
+                <div>
+                    <h3 style="color: var(--brown-dark); margin-bottom: 1rem;">📱 Follow Us</h3>
+                    <p style="margin-bottom: 0.5rem;">Facebook: /pumulahigh</p>
+                    <p style="margin-bottom: 0.5rem;">Twitter: @pumulahigh</p>
+                    <p style="margin-bottom: 0.5rem;">Instagram: @pumulahigh</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Pumula High School</h3>
+                <p>"isizwe sakhiwa ngemfundo"</p>
+                <p>Building a nation through education</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#academics">Academics</a></p>
+                <p><a href="#clubs">Clubs</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📞 +263 123 456 789</p>
+                <p>✉️ info@pumulahigh.edu.zw</p>
+                <p>📍 Bulawayo, Zimbabwe</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 Pumula High School. All rights reserved.</p>
+            <p class="developed-by">Developed by Silethemba Technologies</p>
+        </div>
+    </footer>
+</body>
+</html>
